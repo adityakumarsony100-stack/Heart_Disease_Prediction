@@ -1,26 +1,49 @@
 # ❤️ Heart Disease Prediction — Machine Learning & Streamlit
 
-An end-to-end machine learning project that analyzes **918 patient records** to identify patterns associated with heart disease, statistically evaluate selected clinical variables, compare multiple classification algorithms, and deploy the final SVM model as an interactive **Streamlit web application**.
+An end-to-end **machine learning classification project** built on **918 patient records** to analyze clinical factors associated with heart disease, compare multiple classification algorithms, evaluate model performance, and deploy the final **SVM model as an interactive Streamlit application**.
 
-The project combines **exploratory data analysis, statistical hypothesis testing, machine learning, model evaluation, and deployment** into a single workflow.
+The project combines **exploratory data analysis, statistical hypothesis testing, machine learning, model evaluation, and deployment** in a single workflow.
+
+## 🚀 Project Overview
+
+**Workflow:**
+
+`Data → EDA → Statistical Testing → Preprocessing → Model Comparison → SVM → Streamlit Deployment`
+
+### Key Results
+
+| Metric   |        SVM |
+| -------- | ---------: |
+| Accuracy | **89.13%** |
+| Recall   | **95.10%** |
+| F1 Score | **90.65%** |
+| ROC-AUC  | **0.9285** |
+
+The model achieved **95.10% recall** on the test set, meaning it correctly identified a high proportion of patients belonging to the heart-disease class in this dataset.
+
+> **Note:** These results are specific to the dataset and evaluation procedure used in this project and should not be interpreted as clinical validation.
 
 ---
 
 ## 🎯 Project Objective
 
-The objective of this project is to investigate clinical characteristics associated with heart disease and develop a classification model capable of predicting whether a patient belongs to the heart-disease class based on recorded clinical features.
+The objective was to investigate relationships between clinical characteristics and heart disease while developing a classification model that predicts the presence or absence of heart disease from patient-level features.
 
-The project follows an end-to-end workflow:
+The project focuses on:
 
-**Data → EDA → Statistical Analysis → Feature Preparation → Model Training → Model Evaluation → Deployment**
+* Understanding the dataset through EDA
+* Investigating selected clinical variables statistically
+* Preparing numerical and categorical features
+* Comparing multiple classification algorithms
+* Evaluating models using multiple performance metrics
+* Saving the trained model and preprocessing objects
+* Deploying the final model through Streamlit
 
 ---
 
 ## 📊 Dataset
 
-The dataset contains **918 patient records** and 12 variables.
-
-### Features
+The dataset contains **918 patient records** and **12 variables**.
 
 | Feature          | Description                                    |
 | ---------------- | ---------------------------------------------- |
@@ -35,99 +58,104 @@ The dataset contains **918 patient records** and 12 variables.
 | `ExerciseAngina` | Exercise-induced angina                        |
 | `Oldpeak`        | ST depression                                  |
 | `ST_Slope`       | Slope of the peak exercise ST segment          |
-| `HeartDisease`   | Target variable                                |
+| `HeartDisease`   | Binary target variable                         |
 
-`HeartDisease` is the binary target variable used for classification.
+`HeartDisease` is the target variable used for classification.
 
 ---
 
 ## 🔎 Exploratory Data Analysis
 
-The analysis begins with an examination of:
+The exploratory analysis examined:
 
 * Dataset structure and data types
 * Missing values
 * Descriptive statistics
 * Target-class distribution
-* Feature distributions
+* Numerical feature distributions
 * Correlations between numerical variables
 * Differences in selected clinical variables between target groups
 
-### Key variables investigated
+### Variables Selected for Statistical Analysis
 
-The project specifically examines:
+The following variables were investigated further:
 
-* Age
-* Resting Blood Pressure
-* Cholesterol
-
-These variables were selected for additional statistical analysis after the exploratory stage.
+* **Age**
+* **Resting Blood Pressure**
+* **Cholesterol**
 
 ---
 
 ## 🧪 Statistical Hypothesis Testing
 
-Independent-sample hypothesis tests were conducted to examine whether the selected numerical variables differed between patients with and without heart disease.
+Independent-sample hypothesis tests were performed to examine whether the selected numerical variables differed between patients with and without heart disease.
 
 ### Results
 
-| Variable    | No Heart Disease | Heart Disease |   p-value |
-| ----------- | ---------------: | ------------: | --------: |
-| Age         |            50.55 |         55.90 | < 0.00001 |
-| RestingBP   |           130.18 |        134.19 |   0.00087 |
-| Cholesterol |           227.12 |        175.94 | < 0.00001 |
+| Variable    | No Heart Disease | Heart Disease |       p-value |
+| ----------- | ---------------: | ------------: | ------------: |
+| Age         |            50.55 |         55.90 | **< 0.00001** |
+| RestingBP   |           130.18 |        134.19 |   **0.00087** |
+| Cholesterol |           227.12 |        175.94 | **< 0.00001** |
 
-At a significance level of **α = 0.05**, all three variables showed statistically significant differences between the two groups in this dataset.
+Using a significance level of **α = 0.05**, all three variables showed statistically significant differences between the two groups in this dataset.
 
-> These results describe statistical associations within this dataset and should not be interpreted as evidence of causal relationships.
+These findings indicate **statistical associations**, not causal relationships.
 
 ---
 
 ## 🤖 Machine Learning
 
-Five classification algorithms were evaluated:
+Five classification algorithms were trained and compared:
 
-* Logistic Regression
-* K-Nearest Neighbors (KNN)
-* Support Vector Machine (SVM)
-* Decision Tree
-* Gaussian Naive Bayes
+1. Logistic Regression
+2. K-Nearest Neighbors (KNN)
+3. Support Vector Machine (SVM)
+4. Decision Tree
+5. Gaussian Naive Bayes
 
 ### Preprocessing
 
-The machine-learning pipeline includes:
+The machine-learning workflow included:
 
-1. Separation of features and target
-2. Encoding of categorical variables
-3. Feature scaling using `StandardScaler`
-4. Train/test split
-5. Model training
-6. Classification performance evaluation
+1. Separating features and target
+2. Encoding categorical variables
+3. Scaling features using `StandardScaler`
+4. Splitting the data into training and testing sets
+5. Training multiple classification models
+6. Evaluating model performance
 
-The final deployed model is a **Support Vector Machine (SVM)**.
-
----
-
-## 📈 Model Performance
-
-The final SVM model was evaluated using multiple classification metrics.
-
-| Metric   | SVM Performance |
-| -------- | --------------: |
-| Accuracy |      **89.13%** |
-| Recall   |      **95.10%** |
-| F1 Score |      **90.65%** |
-| ROC-AUC  |      **0.9285** |
-
-Using multiple metrics provides a more complete view of classification performance than accuracy alone.
+The **SVM model** was selected for deployment based on the evaluation performed in the project.
 
 ---
 
-## 🚀 Streamlit Deployment
+## 📈 Model Evaluation
 
-The trained SVM model is deployed through an interactive Streamlit application.
+The final SVM model was evaluated using:
 
-The application allows users to enter patient information including:
+* Accuracy
+* Recall
+* F1 Score
+* ROC-AUC
+
+### SVM Performance
+
+```text
+Accuracy    : 89.13%
+Recall      : 95.10%
+F1 Score    : 90.65%
+ROC-AUC     : 0.9285
+```
+
+Using multiple evaluation metrics provides a more complete assessment of classification performance than accuracy alone.
+
+---
+
+## 🚀 Streamlit Application
+
+The trained SVM model is deployed as an interactive **Streamlit web application**.
+
+Users can enter clinical information such as:
 
 * Age
 * Sex
@@ -141,17 +169,29 @@ The application allows users to enter patient information including:
 * Oldpeak
 * ST slope
 
-The application then processes the input using the saved preprocessing artifacts and returns the model's predicted class.
+The application applies the same preprocessing used during model training and generates a predicted class.
 
-### Application features
+### Application Features
 
-* Interactive patient-input interface
-* Saved SVM model
-* Consistent feature preprocessing
-* Real-time prediction
-* Patient input summary
-* Model-performance dashboard
-* Prediction disclaimer
+* 🧑‍⚕️ Interactive patient input
+* 🤖 Trained SVM model
+* ⚙️ Consistent feature preprocessing
+* ⚡ Real-time prediction
+* 📊 Model performance information
+* 📋 Patient input summary
+* ⚠️ Medical-use disclaimer
+
+---
+
+## 🎥 Application Demo
+
+**Live Demo:**
+[Open the Streamlit Application](https://drive.google.com/file/d/1iIBP-E40N9dkunOdZXDidYx8wlDyCXJj/view?usp=sharing)
+
+**Demo Video:**
+Add the MP4/GIF file to the repository and embed it here.
+
+> **Tip:** GitHub does not reliably display an `.mp4` using standard Markdown image syntax. A GIF or a screenshot linked to the video is usually more effective for a README.
 
 ---
 
@@ -161,7 +201,6 @@ The application then processes the input using the saved preprocessing artifacts
 Heart_Disease_Prediction/
 │
 ├── app.py
-│
 ├── heart_disease_prediction.ipynb
 │
 ├── SVM_HeartDisease.pkl
@@ -169,53 +208,54 @@ Heart_Disease_Prediction/
 ├── columns_HeartDisease.pkl
 │
 ├── requirements.txt
-│
+├── Heat_Disease_Prediction.mp4
 └── README.md
 ```
 
 ### File Description
 
-| File                             | Purpose                                                        |
-| -------------------------------- | -------------------------------------------------------------- |
-| `app.py`                         | Streamlit deployment application                               |
-| `heart_disease_prediction.ipynb` | EDA, statistical analysis, preprocessing and model development |
-| `SVM_HeartDisease.pkl`           | Trained SVM model                                              |
-| `scaler_HeartDisease.pkl`        | Feature-scaling object                                         |
-| `columns_HeartDisease.pkl`       | Feature-column structure used during training                  |
-| `requirements.txt`               | Python dependencies                                            |
-| `README.md`                      | Project documentation                                          |
+| File                             | Description                                                     |
+| -------------------------------- | --------------------------------------------------------------- |
+| `app.py`                         | Streamlit application                                           |
+| `heart_disease_prediction.ipynb` | EDA, statistical analysis, preprocessing, and model development |
+| `SVM_HeartDisease.pkl`           | Trained SVM model                                               |
+| `scaler_HeartDisease.pkl`        | Saved feature-scaling object                                    |
+| `columns_HeartDisease.pkl`       | Feature-column structure used during training                   |
+| `requirements.txt`               | Python dependencies                                             |
+| `Heat_Disease_Prediction.mp4`    | Application demonstration video                                 |
+| `README.md`                      | Project documentation                                           |
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies
 
-**Programming**
+### Programming
 
 * Python
 
-**Data Analysis**
+### Data Analysis
 
 * Pandas
 * NumPy
 
-**Visualization**
+### Visualization
 
 * Matplotlib
 * Seaborn
 
-**Statistical Analysis**
+### Statistical Analysis
 
 * SciPy
 
-**Machine Learning**
+### Machine Learning
 
 * Scikit-learn
 
-**Model Deployment**
+### Deployment
 
 * Streamlit
 
-**Model Serialization**
+### Model Serialization
 
 * Joblib
 
@@ -223,26 +263,28 @@ Heart_Disease_Prediction/
 
 ## ⚙️ Installation
 
-Clone the repository:
+### 1. Clone the repository
 
 ```bash
 git clone <your-repository-url>
 cd Heart_Disease_Prediction
 ```
 
-Create a virtual environment:
+### 2. Create a virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate it on Windows:
+### 3. Activate the environment
+
+**Windows:**
 
 ```bash
 venv\Scripts\activate
 ```
 
-Install dependencies:
+### 4. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -250,15 +292,15 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run the Streamlit Application
+## ▶️ Run the Application
 
-Run:
+Start the Streamlit application with:
 
 ```bash
 streamlit run app.py
 ```
 
-The application will open in your browser at:
+The application will be available locally at:
 
 ```text
 http://localhost:8501
@@ -267,8 +309,6 @@ http://localhost:8501
 ---
 
 ## 📋 Requirements
-
-Example `requirements.txt`:
 
 ```text
 streamlit
@@ -283,89 +323,79 @@ joblib
 
 ---
 
-## 🔬 Project Workflow
+## 🔬 End-to-End Workflow
 
 ```text
-                ┌──────────────────┐
-                │   Patient Data   │
-                └────────┬─────────┘
-                         │
-                         ▼
-                ┌──────────────────┐
-                │       EDA        │
-                │ Statistics &     │
-                │ Correlation      │
-                └────────┬─────────┘
-                         │
-                         ▼
-                ┌──────────────────┐
-                │    Hypothesis    │
-                │     Testing      │
-                └────────┬─────────┘
-                         │
-                         ▼
-                ┌──────────────────┐
-                │   Preprocessing  │
-                │ Encoding + Scale │
-                └────────┬─────────┘
-                         │
-                         ▼
-                ┌──────────────────┐
-                │ Model Comparison │
-                │ LR | KNN | SVM   │
-                │ DT | NB          │
-                └────────┬─────────┘
-                         │
-                         ▼
-                ┌──────────────────┐
-                │   Final SVM      │
-                │ 89.13% Accuracy  │
-                │ 95.10% Recall    │
-                │ 0.9285 ROC-AUC   │
-                └────────┬─────────┘
-                         │
-                         ▼
-                ┌──────────────────┐
-                │    Streamlit     │
-                │    Deployment    │
-                └──────────────────┘
+                    Patient Dataset
+                           │
+                           ▼
+                  Exploratory Data Analysis
+                           │
+                           ▼
+                  Statistical Hypothesis Testing
+                           │
+                           ▼
+                 Feature Preprocessing
+              Encoding + Standard Scaling
+                           │
+                           ▼
+                   Model Comparison
+          ┌────────┬────────┬────────┬────────┐
+          │   LR   │  KNN   │  SVM   │   DT   │
+          └────────┴────────┴────────┴────────┘
+                           │
+                           ▼
+                    Final SVM Model
+                           │
+                           ▼
+               Model Evaluation
+      Accuracy 89.13% | Recall 95.10%
+                           │
+                           ▼
+                 Streamlit Deployment
+                           │
+                           ▼
+                Interactive Prediction App
 ```
 
 ---
 
-## 💡 Key Takeaways
+## 💡 What I Learned
 
-This project demonstrates practical experience with:
+This project provided practical experience in:
 
 * Exploratory data analysis
 * Statistical hypothesis testing
-* Numerical and categorical feature preprocessing
+* Working with numerical and categorical variables
+* Feature preprocessing and scaling
 * Classification algorithms
 * Model comparison
-* Performance evaluation
-* Model serialization
+* Model evaluation
+* Model serialization with Joblib
 * Streamlit application development
-* End-to-end machine learning workflow
+* Building an end-to-end machine-learning workflow
 
-Rather than treating model training as the final step, the project extends the workflow to **deployment through an interactive application**.
+A key focus of the project was taking the model **beyond the notebook and into a usable interactive application**.
 
 ---
 
 ## ⚠️ Disclaimer
 
-This application is intended for **educational and demonstration purposes only**.
+This application is developed for **educational and demonstration purposes only**.
 
-The predictions generated by the machine-learning model should not be considered medical diagnoses or used as a substitute for evaluation by a qualified healthcare professional.
+The predictions generated by this model should **not** be considered medical diagnoses or used as a substitute for evaluation by a qualified healthcare professional.
 
 ---
 
 ## 👨‍💻 Author
 
-**Aditya Kumar Sony**
+### Aditya Kumar Sony
 
-BSc Mathematics | Data Science & Machine Learning
+**BSc Mathematics | Data Science & Machine Learning**
 
-Interested in **Data Analytics, Machine Learning, Mathematical Modeling, and Applied Data Science**.
+Interested in:
+
+`Data Analytics • Machine Learning • Mathematical Modeling • Applied Data Science`
 
 ---
 
@@ -374,13 +404,13 @@ Interested in **Data Analytics, Machine Learning, Mathematical Modeling, and App
 ```text
 918 Patient Records
         ↓
-EDA + Correlation Analysis
+Exploratory Data Analysis
         ↓
-Hypothesis Testing
+Statistical Hypothesis Testing
         ↓
-5 Classification Models
+5 Classification Algorithms
         ↓
-SVM
+Support Vector Machine
         ↓
 89.13% Accuracy
 95.10% Recall
@@ -388,14 +418,6 @@ SVM
 0.9285 ROC-AUC
         ↓
 Streamlit Deployment
-
-## 🚀 Live Demo
-
-[👉https://drive.google.com/file/d/1iIBP-E40N9dkunOdZXDidYx8wlDyCXJj/view?usp=sharing
-
-## 🎥 App Demo
-
-![](Heat_Disease_Prediction.mp4)
 ```
 
 If you found this project useful, consider giving the repository a ⭐.
