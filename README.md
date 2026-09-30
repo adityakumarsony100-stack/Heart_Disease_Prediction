@@ -388,6 +388,14 @@ SVM
 0.9285 ROC-AUC
         ↓
 Streamlit Deployment
+
+## 🚀 Live Demo
+
+[👉https://drive.google.com/file/d/1iIBP-E40N9dkunOdZXDidYx8wlDyCXJj/view?usp=sharing
+
+## 🎥 App Demo
+
+![](Heat_Disease_Prediction.mp4)
 ```
 
 If you found this project useful, consider giving the repository a ⭐.
